@@ -25,7 +25,7 @@ if(isset($_POST["submit"])){
         $errors["surName"] =" not null";
     }
     if($email ==""){
-        $errors["email"] =" not null";
+        $errors["email"] =" not null or unique";
     }
 
 if(count($errors)==0){
