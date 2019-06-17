@@ -15,11 +15,11 @@
 include("./connect.php");
 $errors=[];
 if(isset($_POST["submit"])){
-    $name = isset($_POST["name"])?$_POST["name"]:"";
+   $fisrtName = isset($_POST["fisrtName "])?$_POST["fisrtName"]:"";
     $surName =isset($_POST["surName"])?$_POST["surName"]:"";
     $email = isset($_POST["email"])?$_POST["email"]:"";
-    if($name ==""){
-        $errors["name"] =" not null";
+    if($fisrtName ==""){
+        $errors["firstName"] =" not null";
     }
     if($surName ==""){
         $errors["surName"] =" not null";
@@ -29,8 +29,10 @@ if(isset($_POST["submit"])){
     }
 
 if(count($errors)==0){
-        $member = "INSERT INTO `members`(fisrtName,surName,email) VALUES('$name','$surName','$email')";
+        $member = "INSERT INTO `members`('fisrtName',surName,email) VALUES('$fisrtName','$surName','$email')";
+        echo "<pre>";
         print_r($member);
+
         $query = mysqli_query($conn,$member);
         if($query){
             echo " thanh cong";
@@ -57,7 +59,7 @@ if(count($errors)==0){
     
         <div class="form-group">
             <label for="">Name</label>
-            <input type="text" class="form-control" id="" placeholder="Input field" name ="name ">
+            <input type="text" class="form-control" id="" placeholder="Input field" name ="fisrtName">
         </div>
         <div class="form-group">
             <label for="">surName</label>
@@ -65,7 +67,7 @@ if(count($errors)==0){
         </div>
         <div class="form-group">
             <label for="">Email</label>
-            <input type="text" class="form-control" id="" placeholder="Input field" name="email ">
+            <input type="text" class="form-control" id="" placeholder="Input field" name="email">
         </div>
     
         
