@@ -29,7 +29,7 @@ if(isset($_POST["submit"])){
     }
 
 if(count($errors)==0){
-        $member = "INSERT INTO `members`('fisrtName',surName,email) VALUES('$fisrtName','$surName','$email')";
+        $member = "INSERT INTO `members` (`fisrtName`, `SurName`, `email`) VALUES ( '$fisrtName', '$lastName', '$email')";
         echo "<pre>";
         print_r($member);
 
@@ -47,7 +47,6 @@ if(count($errors)==0){
     <form action="" method="POST" role="form">
         <legend>Members</legend>
         <?php if(count($errors)>0): foreach($errors as $key => $value):?>
-
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong><?php echo $key ?></strong> <?php echo $value ?>

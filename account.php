@@ -47,7 +47,7 @@ if($query){
         <tr>
             <td><?php echo $a["id"] ?></td>
             <td><?php $a["fisrtName"]?></td>
-            <td><?php $a["surName"]?></td>
+            <td><?php $a["lastName"]?></td>
             <td><?php $a["email"]?></td>
         </tr>
 <?php endforeach; ?>
