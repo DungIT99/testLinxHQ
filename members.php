@@ -15,30 +15,27 @@
 include("./connect.php");
 $errors=[];
 if(isset($_POST["submit"])){
-   $fisrtName = isset($_POST["fisrtName "])?$_POST["fisrtName"]:"";
-    $surName =isset($_POST["surName"])?$_POST["surName"]:"";
+  $firstName = isset($_POST["firstName"])?$_POST["firstName"]:"";
+  $lastName =isset($_POST["lastName"])?$_POST["lastName"]:"";
     $email = isset($_POST["email"])?$_POST["email"]:"";
-    if($fisrtName ==""){
+    if($firstName == ""){
         $errors["firstName"] =" not null";
     }
-    if($surName ==""){
-        $errors["surName"] =" not null";
+    if($lastName == ""){
+        $errors["lastName"] =" not null";
     }
-    if($email ==""){
+    if($email == ""){
         $errors["email"] =" not null or unique";
     }
 
 if(count($errors)==0){
-        $member = "INSERT INTO `members` (`fisrtName`, `SurName`, `email`) VALUES ( '$fisrtName', '$lastName', '$email')";
-        echo "<pre>";
-        print_r($member);
-
+        $member = "INSERT INTO `account` (`firstName`, `lastName`, `email`) VALUES ( '$firstName', '$lastName', '$email')";
         $query = mysqli_query($conn,$member);
-        if($query){
-            echo " thanh cong";
-        }else{
-            echo "false";
-        }
+  if($query){
+    echo '<script language="javascript">';
+echo 'alert("register successfully ")';
+echo '</script>';
+  }
 }
 }
 ?>
@@ -57,12 +54,12 @@ if(count($errors)==0){
         
     
         <div class="form-group">
-            <label for="">Name</label>
-            <input type="text" class="form-control" id="" placeholder="Input field" name ="fisrtName">
+            <label for="">firstName</label>
+            <input type="text" class="form-control" id="" placeholder="Input field" name ="firstName">
         </div>
         <div class="form-group">
-            <label for="">surName</label>
-            <input type="text" class="form-control" id="" placeholder="Input field" name="surName">
+            <label for="">lastName</label>
+            <input type="text" class="form-control" id="" placeholder="Input field" name="lastName">
         </div>
         <div class="form-group">
             <label for="">Email</label>
